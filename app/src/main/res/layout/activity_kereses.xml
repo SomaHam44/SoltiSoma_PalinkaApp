@@ -8,14 +8,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Főző"
-        android:id="@+id/edit_fozo"
+        android:id="@+id/edit_fozoje"
         />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Gyümölcs"
-        android:id="@+id/edit_gyumolcs"
+        android:id="@+id/edit_gyumolcse"
         />
 
 

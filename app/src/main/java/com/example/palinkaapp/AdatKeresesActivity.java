@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,6 +30,18 @@ public class AdatKeresesActivity extends AppCompatActivity {
                 Intent visszatero = new Intent(AdatKeresesActivity.this, MainActivity.class);
                 startActivity(visszatero);
                 finish();
+            }
+        });
+
+        btnKereso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String fozos = editFozo.getText().toString().trim();
+                String gyumolcse = editGyumolcs.getText().toString().trim();
+                if (fozos.isEmpty() || gyumolcse.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Minden mező kitöltése kötelező",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
