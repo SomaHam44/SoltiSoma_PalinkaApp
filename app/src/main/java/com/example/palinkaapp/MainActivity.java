@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else {
                 StringBuilder builder = new StringBuilder();
+                Toast.makeText(this, "Sikeres listázás", Toast.LENGTH_SHORT).show();
                 while (adataink.moveToNext()) {
                     builder.append("ID: ").append(adataink.getInt(0));
                     builder.append(System.lineSeparator());
