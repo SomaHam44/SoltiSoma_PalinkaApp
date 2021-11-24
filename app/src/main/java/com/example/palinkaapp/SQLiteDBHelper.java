@@ -1,5 +1,6 @@
 package com.example.palinkaapp;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -38,6 +39,15 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(sqLiteDatabase);
 
+    }
+
+    public boolean felvesz(String fozo, String gyumolcs, int alkohol) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COL_FOZO, fozo);
+        values.put(COL_GYUMOLCS, gyumolcs);
+        values.put(COL_ALKOHOL, alkohol);
+        return db.insert(TABLE_NAME, null, values) != -1;
     }
 
     public Cursor listaz() {

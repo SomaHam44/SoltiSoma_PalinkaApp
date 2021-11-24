@@ -47,8 +47,21 @@ public class AdatFelvetelActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Az alkoholTartalom" +
                                     "negatív szám nem lehet", Toast.LENGTH_SHORT).show();
                         }
+                        else {
+                             if (adatbazis.felvesz(fozo, gyumolcs, alkoholTartalom)) {
+                                Toast.makeText(getApplicationContext(), "Sikeres felvétel",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                             else {
+                                 Toast.makeText(getApplicationContext(), "Sikertelen felvétel",
+                                         Toast.LENGTH_SHORT).show();
+
+                             }
+                        }
                     }
                     catch (NumberFormatException e) {
+                        Toast.makeText(getApplicationContext(), "Az alkohol tartalmának számnak kell lennie ",
+                                Toast.LENGTH_SHORT).show();
 
                     }
 
