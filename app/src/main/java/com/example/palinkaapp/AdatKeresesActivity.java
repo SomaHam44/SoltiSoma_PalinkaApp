@@ -1,6 +1,7 @@
 package com.example.palinkaapp;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,10 +39,29 @@ public class AdatKeresesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String fozos = editFozo.getText().toString().trim();
                 String gyumolcse = editGyumolcs.getText().toString().trim();
+                Cursor keresos = adatbazis.kereses(fozos, gyumolcse);
                 if (fozos.isEmpty() || gyumolcse.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Minden mező kitöltése kötelező",
                             Toast.LENGTH_SHORT).show();
                 }
+                else {
+                    StringBuilder builder = new StringBuilder();
+                    Toast.makeText(getApplicationContext(), "Keresés elindítva!",
+                            Toast.LENGTH_SHORT).show();
+                    while (keresos.moveToNext()) {
+                        builder.append("Alkoholtartalom: ").append(keresos.getInt(0)).append("%");
+                        builder.append(System.lineSeparator());
+                        if (builder.toString() == "") {
+                            textKeresesnel.setText("A megadott adatokkal nem található pálinka!");
+                        }
+                        else {
+                            textKeresesnel.setText(builder.toString());
+                        }
+                    }
+
+
+                }
+
             }
         });
     }
