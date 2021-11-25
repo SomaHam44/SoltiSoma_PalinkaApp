@@ -43,10 +43,11 @@ public class AdatKeresesActivity extends AppCompatActivity {
                 if (fozos.isEmpty() || gyumolcse.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Minden mező kitöltése kötelező",
                             Toast.LENGTH_SHORT).show();
+                    textKeresesnel.setText("Hiba a keresés során!");
                 }
                 else {
                     StringBuilder builder = new StringBuilder();
-                    Toast.makeText(getApplicationContext(), "Keresés elindítva!",
+                    Toast.makeText(getApplicationContext(), "Sikeres keresés!",
                             Toast.LENGTH_SHORT).show();
                     while (keresos.moveToNext()) {
                         builder.append("Alkoholtartalom: ").append(keresos.getInt(0)).append("%");
@@ -54,6 +55,7 @@ public class AdatKeresesActivity extends AppCompatActivity {
                         if (builder.toString() == "") {
                             textKeresesnel.setText("A megadott adatokkal nem található pálinka!");
                         }
+
                         else {
                             textKeresesnel.setText(builder.toString());
                         }
