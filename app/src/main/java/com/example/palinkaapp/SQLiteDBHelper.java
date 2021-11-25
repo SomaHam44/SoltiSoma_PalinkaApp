@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
+
 
 public class SQLiteDBHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "palinkak.db";
